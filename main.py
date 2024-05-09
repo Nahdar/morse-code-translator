@@ -65,9 +65,11 @@ def to_alpha():
     reversed_morse_alphabet = {index: key for key, index in morse_alphabet.items()}
     result = []
 
-    for char in phrase.split():
-        if char in reversed_morse_alphabet:
-            result.append(reversed_morse_alphabet[char])
+    for word in phrase.split("  "):
+        for char in word.split():
+            if char in reversed_morse_alphabet:
+                result.append(reversed_morse_alphabet[char])
+        result.append(" ")
 
     return "".join(result)
 
